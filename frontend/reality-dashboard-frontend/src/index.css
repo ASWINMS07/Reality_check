@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* Force Tailwind v4 to use class-based dark mode instead of system media queries */
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-secondary: #8b5cf6;
+}
+
+@layer base {
+  body {
+    @apply transition-colors duration-300 bg-gray-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased font-sans;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-800/50;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-600;
+}
