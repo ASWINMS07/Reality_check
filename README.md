@@ -8,24 +8,18 @@ The application follows a client-server architecture with a React frontend and a
 
 ### System Diagram
 
-```
-@startuml
-!theme plain
-skinparam backgroundColor #FEFEFE
-skinparam sequenceParticipant underline
-
-actor User
-participant "Frontend (React)" as FE
-participant "Backend (Express)" as BE
-database "PostgreSQL" as DB
-
-User -> FE: Interact with UI
-FE -> BE: API Requests
-BE -> DB: Database Queries
-DB --> BE: Query Results
-BE --> FE: API Responses
-FE --> User: Render Data
-@enduml
+```mermaid
+sequenceDiagram
+    participant User
+    participant FE as Frontend (React)
+    participant BE as Backend (Express)
+    participant DB as PostgreSQL
+    User->>FE: Interact with UI
+    FE->>BE: API Requests
+    BE->>DB: Database Queries
+    DB-->>BE: Query Results
+    BE-->>FE: API Responses
+    FE-->>User: Render Data
 ```
 
 ### Backend Architecture
